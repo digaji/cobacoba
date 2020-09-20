@@ -8,4 +8,4 @@ for i in range(1, 100):
         total1 += i
 print(total1)
 
-print("udh mulai gak jelas")
+print(list(range(1, 5)))
