@@ -1,4 +1,3 @@
-#23 September 2020
 #Tuple
 a_tuple = (57, "String", 57.0)
 print(a_tuple[2])
