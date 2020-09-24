@@ -17,3 +17,18 @@ while True:
     else:
         break
 print(a_list)
+
+#Guessing game, pick a number from 1 - 100. Program will tell if guess is too much or too little
+import random
+randomint = random.randint(1, 100)
+
+print("Welcome to the guessing game! Pick a number from 1 - 100!")
+while True:
+    guess = int(input("Your guess: "))
+    if guess == randomint:
+        print("You guessed right! Congrats!")
+        break
+    elif guess > randomint:
+        print("Too much! Try something less")
+    elif guess < randomint:
+        print("Too little! Try something more")
