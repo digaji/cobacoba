@@ -32,3 +32,12 @@ while True:
         print("Too much! Try something less")
     elif guess < randomint:
         print("Too little! Try something more")
+
+#Make inverse triangle from given height
+TRIANGLE_HEIGHT = 5
+
+for i in range(TRIANGLE_HEIGHT):
+    print("*" * (i + 1))
+
+for i in range(TRIANGLE_HEIGHT):
+    print(" " * (TRIANGLE_HEIGHT - 1 - i) + "*" * (i + 1))
