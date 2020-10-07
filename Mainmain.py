@@ -51,3 +51,17 @@ def diamond(height):
         print(" " * (height - 1 - i) + "*" * (i * 2 + 1))
 
 diamond(eval(input("Type the height you want: ")))
+# More efficient version
+def diamond1(height):
+    for i in list(range(height)) + list(range(height - 2, -1, -1)):
+        print(" " * (height - 1 - i) + "*" * (i * 2 + 1))
+
+diamond1(eval(input("Type the height: ")))
+
+#Make Empty Matrix
+matrix_len = 5
+matrix_height = 2
+
+my_empty_matrix = [[0 for _ in range(matrix_len)] for _ in range(matrix_height)]
+for vec in my_empty_matrix:
+    print(vec)
