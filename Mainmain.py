@@ -65,3 +65,21 @@ matrix_height = 2
 my_empty_matrix = [[0 for _ in range(matrix_len)] for _ in range(matrix_height)]
 for vec in my_empty_matrix:
     print(vec)
+
+def addition(a, b):
+    result = a + b
+    return result
+
+my_var = addition(5, 6)
+print(my_var)
+
+def split_and_length(string):
+    result1 = []
+    for i in string:
+        result1.append(i)
+    return (result1, len(string))
+
+my_var = "Jason"
+chars, length = split_and_length(my_var)
+print(chars)
+print(length)
