@@ -83,3 +83,71 @@ my_var = "Jason"
 chars, length = split_and_length(my_var)
 print(chars)
 print(length)
+
+# 14 October 2020
+# class name always start with Capitalized letter
+# class is like a blueprint
+"""class Hammer:
+    pass"""
+
+"""my_hammer = Hammer()"""
+# making an object from a class -> Instantiation
+"""your_hammer = Hammer()"""
+# now we have 2 objects
+
+class Hammer:
+
+    def __init__(self, mat):
+        self.material = mat
+
+    def print_hammer(self):
+        print("Hello! I am made from " + self.material)
+
+my_hammer = Hammer("Titanium")
+your_hammer = Hammer("Iron")
+
+# Calling methods -> Func in class
+your_hammer.print_hammer()
+
+# Getting attributes -> Var in class
+print(your_hammer.material)
+
+class Rectangle:
+
+    def __init__(self, length):
+        self.length = length
+    
+    def area(self):
+        return self.length ** 2
+
+rect = Rectangle(5)
+print(rect.area())
+
+class Triangle:
+
+    def __init__(self, height, length):
+        self.height = height
+        self.length = length
+
+    def area(self):
+        return 1/2 * self.height * self.length
+
+tri = Triangle(6, 3)
+print(tri.area())
+
+from functools import reduce
+
+fib = lambda n: reduce(lambda x, _: x+[x[-1] + x[-2]], range(n-2), [0,1])
+
+print(fib(5))
+
+my_list = [5, 4, 3, 2, 1]
+print(reduce(lambda x, y: x + y, my_list))
+
+def fib_long(n):
+    result = [0, 1]
+    for i in range(n-2):
+        result.append(result[-1] + result[-2])
+    return result
+
+print(fib_long(8))
