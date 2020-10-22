@@ -306,3 +306,8 @@ taxpayable(taxIncome)
 # 10. Print multiplication table from 1 to 10
 for i in range(1, 11):
     print(i, str(list(map(lambda x: i * x, range(2, 11)))).replace(",", "")[1:-1])
+
+# Alternative method after learning about unpacking using *args
+for i in range(1, 11):
+    print(i, *list(map(lambda x: i * x, range(2, 11))))
+# %%
