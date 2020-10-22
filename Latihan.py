@@ -190,7 +190,7 @@ def convert(r, g, b):
         s = (((cmax - cmin)) / cmax) * 100
     v = cmax * 100
     print("RGB > {},{},{}".format(r, g, b))
-    print("HSV > ", (h, s, v))
+    print("HSV > ", (h, s, v)) # type: ignore
 
 
 convert(0, 215, 0)
