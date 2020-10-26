@@ -161,3 +161,15 @@ def fib_long(n):
     return result
 
 print(fib_long(8))
+
+#%%
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 5, 100)
+y = np.cos(x)
+y2 = np.sin(x)
+
+plt.plot(x, y)
+plt.plot(x, y2)
+plt.show()

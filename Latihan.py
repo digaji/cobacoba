@@ -190,7 +190,7 @@ def convert(r, g, b):
         s = (((cmax - cmin)) / cmax) * 100
     v = cmax * 100
     print("RGB > {},{},{}".format(r, g, b))
-    print("HSV > ", (h, s, v)) # type: ignore
+    print("HSV > ", (h, s, v))  # type: ignore
 
 
 convert(0, 215, 0)
@@ -307,7 +307,7 @@ taxpayable(taxIncome)
 for i in range(1, 11):
     print(i, str(list(map(lambda x: i * x, range(2, 11)))).replace(",", "")[1:-1])
 
-# Alternative method after learning about unpacking using *args
+# Alternative method after learning about unpacking using * (unpacking operator)
 for i in range(1, 11):
     print(i, *list(map(lambda x: i * x, range(2, 11))))
 # %%
