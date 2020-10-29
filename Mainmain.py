@@ -173,3 +173,65 @@ y2 = np.sin(x)
 plt.plot(x, y)
 plt.plot(x, y2)
 plt.show()
+
+#%%
+def average(numbers):
+    """
+    Args:
+        numbers (list): List of numbers
+
+    Returns:
+        (int): Average from the list of numbers
+    """
+    total = sum(numbers)
+    total = float(total)
+    total = total / len(numbers)
+    return total
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.homework = []
+        self.quizzes = []
+        self.tests = []
+
+    weight = [0.1, 0.3, 0.6]
+
+    def avg_homework(self):
+        return average(self.homework)
+
+    def avg_quizzes(self):
+        return average(self.quizzes)
+
+    def avg_tests(self):
+        return average(self.tests)
+
+    def overall_avg(self):
+        return (
+            self.avg_homework() * Student.weight[0] +
+            self.avg_quizzes() * Student.weight[1] +
+            self.avg_tests() * Student.weight[2]
+            )
+
+    def is_higher_avg_than(self, another_student):
+        return self.overall_avg() > another_student.overall_avg()
+
+eren = Student("Eren")
+eren.homework += [90, 97, 75, 92]
+eren.quizzes += [88, 40, 94]
+eren.tests += [75, 90]
+
+mikasa = Student("Mikasa")
+mikasa.homework = [100, 92, 98, 100]
+mikasa.quizzes = [82, 83, 91]
+mikasa.tests = [89, 97]
+
+print(f"Old avg: {eren.overall_avg()}")
+print(f"Old avg: {mikasa.overall_avg()}")
+
+Student.weight = [0.5, 0.3, 0.2]
+
+print(f"New avg: {eren.overall_avg()}")
+print(f"New avg: {mikasa.overall_avg()}")
+
+print(f"Is Mikasa's score higher than Eren's?: {mikasa.is_higher_avg_than(eren)}")
