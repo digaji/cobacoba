@@ -235,3 +235,129 @@ print(f"New avg: {eren.overall_avg()}")
 print(f"New avg: {mikasa.overall_avg()}")
 
 print(f"Is Mikasa's score higher than Eren's?: {mikasa.is_higher_avg_than(eren)}")
+
+#%%
+class Animal:  # Abstract Class. You don't create things from this, only inherit from here
+    def __init__(self, legs, flavour, weight, lifespan):
+        self.legs = legs
+        self.flavour = flavour
+        self.weight = weight
+        self.__lifespan = lifespan
+
+    def makeSound(self):
+        return "No Sound"
+
+    def toString(self):
+        return "Still Empty"
+
+    def willLive(self, age=None):
+        if age == None:
+            return f"This animal will usually live for {self.__lifespan} years"
+        else:
+            return self.willLive() + f" But, this one lives for {age} years"
+
+    def toString(self):
+        return (
+            f"[legs:{self.legs}, "
+            f"flavour:{self.flavour}, "
+            f"weight:{self.weight}, "
+            f"lifespan:{self.__lifespan}, "
+            f"makes sound like:{self.makeSound()}]"
+        )
+
+    def getLifespan(self):
+        return self.__lifespan
+
+    def setLifespan(self, lifespan):
+        if lifespan > 0:
+            self.__lifespan = lifespan
+
+
+class Cat(Animal):
+    def __init__(self, flavour, weight):
+        super().__init__(4, flavour, weight, 13)
+
+    def makeSound(self):
+        return "Meow"
+
+
+class Fish(Animal):
+    def __init__(self, flavor, weight, lifespan):
+        super().__init__(0, flavor, weight, lifespan)
+
+    def makeSound(self):
+        return "Glug Glug"
+
+
+my_cat = Cat("Not good", 7)
+
+print(my_cat.makeSound())
+print(my_cat.toString())
+print(my_cat.willLive())
+print(my_cat.willLive(10))
+
+my_fish = Fish("Very good", 9, 1)
+
+print(my_fish.makeSound())
+print(my_fish.toString())
+print(my_fish.willLive())
+print(my_fish.willLive(10))
+
+#%%
+class Student:
+
+    def __init__(self):
+        self.__sname = ""
+
+    @property
+    def sname(self):
+        return self.__sname
+    
+    @sname.setter
+    def sname(self, sname):
+        if not sname.isnumeric():
+            self.__sname = sname
+
+me = Student()
+me.sname = "bruh"
+print(me.sname)
+
+
+def check_zero(func):
+
+    def finished(a, b):
+        if b == 0:
+            return None
+        return func(a, b)
+    
+    return finished
+
+@check_zero
+def divide(a, b):
+    return a / b
+
+# Other way
+def divide2(a, b):
+    return a / b
+new_divide = check_zero(divide2)
+
+print(divide(7, 2))
+print(divide(9, 0))
+print(divide(2, 6))
+print(divide(5, 9))
+print(divide(7, 0))
+
+#%%
+import re
+
+data = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac erat nec sapien finibus commodo. 
+Nullam mattis cursus metus et hendrerit. BK-N130531 Pellentesque non neque magna. Proin auctor arcu augue, 
+ac accumsan eros semper sit amet. AB-N175236 In nulla lorem, dapibus nec magna eget, fermentum viverra justo. 
+Quisque egestas metus sem, in pretium lectus lobortis suscipit. Sed et porttitor justo, eget condimentum neque. 
+Curabitur leo tellus, porta imperdiet nisi finibus, tristique convallis dui."""
+
+pattern = re.compile(r"[A-Z]{2}-N\d{6}")
+match = pattern.findall(data)
+
+for i in match:
+    print(i)
